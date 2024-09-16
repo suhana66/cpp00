@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:52:18 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 17:27:08 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 17:31:09 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	main(void)
 			std::cout << "* Exiting phonebook now... (CTRL+D was pressed)" << std::endl;
 			break ;
 		}
+		else if (str == "ADD")
+			phonebook.addContact();
+		else if (str == "SEARCH")
+			phonebook.searchContacts();
 	}
 	return (0);
 }

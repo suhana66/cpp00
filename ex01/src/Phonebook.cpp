@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 16:39:03 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 17:40:57 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Phonebook::Phonebook(void)
 {
 	std::cout << "Welcome to My Awesome Phonebook!" << std::endl;
-	std::cout << "* Created an empty phonebook for up to 8 contacts" << std::endl;
+	std::cout << "* Created an empty phonebook for up to " << Phonebook::MAX_CONTACTS << " contacts" << std::endl;
 }
 
 Phonebook::~Phonebook(void)
@@ -38,4 +38,12 @@ Phonebook& Phonebook::operator=(const Phonebook &src)
 	for (int i = 0; i < Phonebook::MAX_CONTACTS; i++)
 		this->_contacts[i] = src._contacts[i];
 	return (*this);
+}
+
+void	Phonebook::addContact(void)
+{
+}
+
+void	Phonebook::searchContacts(void)
+{
 }
