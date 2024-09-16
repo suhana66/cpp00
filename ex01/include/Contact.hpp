@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:43:09 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 12:26:28 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 14:16:14 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ class	Contact
 		~Contact(void);
 		Contact(const Contact &src);
 		Contact& operator=(const Contact &src);
+
+		std::string	getFirstName(void) const;
+		std::string	getLastName(void) const;
+		std::string	getNickName(void) const;
+		std::string	getPhoneNumber(void) const;
+		std::string	getSecret(void) const;
 };
 
 #endif /* CONTACT_H */
