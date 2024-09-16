@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 10:57:55 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 12:02:23 by susajid          ###   ########.fr       */
+/*   Created: 2024/09/16 10:43:09 by susajid           #+#    #+#             */
+/*   Updated: 2024/09/16 12:26:28 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#ifndef CONTACT_H
+# define CONTACT_H
 
-int	main(void)
+#include <string>
+
+class	Contact
 {
-	return (0);
-}
+	private:
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+		std::string	_phoneNumber;
+		std::string	_secret;
+
+	public:
+		Contact(void);
+		~Contact(void);
+		Contact(const Contact &src);
+		Contact& operator=(const Contact &src);
+};
+
+#endif /* CONTACT_H */
