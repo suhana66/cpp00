@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:58 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 16:51:30 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 20:16:32 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,29 @@ Contact& Contact::operator=(const Contact &src)
 	this->_phoneNumber = src._phoneNumber;
 	this->_secret = src._secret;
 	return (*this);
+}
+
+std::string	Contact::getFirstName(void) const
+{
+	return (this->_firstName);
+}
+
+std::string	Contact::getLastName(void) const
+{
+	return (this->_lastName);
+}
+
+std::string	Contact::getNickName(void) const
+{
+	return (this->_nickName);
+}
+
+std::string	Contact::getPhoneNumber(void) const
+{
+	return (this->_phoneNumber);
+}
+
+std::string	Contact::getSecret(void) const
+{
+	return (this->_secret);
 }

@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 17:40:57 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 20:58:59 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Phonebook::Phonebook(void)
 {
 	std::cout << "Welcome to My Awesome Phonebook!" << std::endl;
 	std::cout << "* Created an empty phonebook for up to " << Phonebook::MAX_CONTACTS << " contacts" << std::endl;
+	this->_index = 0;
 }
 
 Phonebook::~Phonebook(void)

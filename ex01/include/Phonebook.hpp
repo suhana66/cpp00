@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:44 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/16 16:56:43 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/16 20:57:37 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PHONEBOOK_H
 
 # include "Contact.hpp"
+
+bool	getInput(std::string& str, const std::string prompt, const std::string eofErrorMsg);
 
 class	Phonebook
 {
