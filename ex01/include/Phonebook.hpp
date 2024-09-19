@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:44 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 17:16:54 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 17:54:20 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ class	Phonebook
 	private:
 		static const int	MAX_CONTACTS = 8;
 		Contact				_contacts[MAX_CONTACTS];
-		unsigned int		_contactCount;
+		int					_contactCount;
+
+		static void	_printDivider(int columnCount);
+		static void	_printColumn(int columnCount, std::string columnValues[]);
 
 	public:
 		Phonebook(void);

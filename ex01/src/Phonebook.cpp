@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 17:16:13 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 18:16:36 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	Phonebook::addContact(void)
 	if (this->_contactCount >= this->MAX_CONTACTS)
 		std::cout << "Warning: overwriting info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
 	this->_contacts[this->_contactCount % this->MAX_CONTACTS] = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
-	std::cout << "* Added info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
+	std::cout << "* Added info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl << std::endl;
 	this->_contactCount++;
 }
 
@@ -73,22 +73,40 @@ void	Phonebook::searchContacts(void)
 
 void	Phonebook::printContacts(void)
 {
-	std::cout << std::right << "+" << std::setfill('-')
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-	<< std::endl;
-	std::cout << "|" << std::setfill(' ')
-		<< std::setw(COLUMN_WIDTH) << "Index" << "|"
-		<< std::setw(COLUMN_WIDTH) << "First Name" << "|"
-		<< std::setw(COLUMN_WIDTH) << "Last Name" << "|"
-		<< std::setw(COLUMN_WIDTH) << "Nickname" << "|"
-	<< std::endl;
-	std::cout << "+" << std::setfill('-')
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-		<< std::setw(COLUMN_WIDTH + 1) << "+"
-	<< std::endl;
+	std::string	columnValues[] = {"Index", "First Name", "Last Name", "Nickname"};
+	int			columnCount = sizeof(columnValues) / sizeof(columnValues[0]);
+
+	this->_printDivider(columnCount);
+	this->_printColumn(columnCount, columnValues);
+	this->_printDivider(columnCount);
+}
+
+void	Phonebook::_printDivider(int columnCount)
+{
+	std::ios	init(NULL);
+	init.copyfmt(std::cout);
+
+	if (columnCount <= 0)
+		return ;
+	std::cout << "\t+" << std::setfill('-');
+	while (columnCount--)
+		std::cout << std::setw(COLUMN_WIDTH + 1) << "+";
+	std::cout << std::endl;
+
+	std::cout.copyfmt(init);
+}
+
+void	Phonebook::_printColumn(int columnCount, std::string columnValues[])
+{
+	std::ios	init(NULL);
+	init.copyfmt(std::cout);
+
+	if (columnCount <= 0)
+		return ;
+	std::cout << "\t|";
+	for (int i = 0; i < columnCount; i++)
+		std::cout << std::setw(COLUMN_WIDTH) << columnValues[i] << "|";
+	std::cout << std::endl;
+
+	std::cout.copyfmt(init);
 }
