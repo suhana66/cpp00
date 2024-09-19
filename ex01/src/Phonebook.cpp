@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 18:16:36 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 19:17:06 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,19 @@ void	Phonebook::searchContacts(void)
 void	Phonebook::printContacts(void)
 {
 	std::string	columnValues[] = {"Index", "First Name", "Last Name", "Nickname"};
-	int			columnCount = sizeof(columnValues) / sizeof(columnValues[0]);
+	int			columnCount = 4;
 
 	this->_printDivider(columnCount);
 	this->_printColumn(columnCount, columnValues);
+	this->_printDivider(columnCount);
+	for (int i = 0; i < (this->_contactCount > this->MAX_CONTACTS ? this->MAX_CONTACTS : this->_contactCount); i++)
+	{
+		columnValues[0] = '0' + i + 1;
+		columnValues[1] = this->_contacts[i].getFirstName(COLUMN_WIDTH);
+		columnValues[2] = this->_contacts[i].getLastName(COLUMN_WIDTH);
+		columnValues[3] = this->_contacts[i].getNickName(COLUMN_WIDTH);
+		this->_printColumn(columnCount, columnValues);
+	}
 	this->_printDivider(columnCount);
 }
 

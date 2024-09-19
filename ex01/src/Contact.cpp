@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:58 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 14:17:29 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 19:18:04 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,37 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickNa
 {
 }
 
-std::string	Contact::getFirstName(void) const
+std::string	Contact::getFirstName(int size) const
 {
+	if (size > 0 && (int)this->_firstName.length() > size)
+		return (this->_firstName.substr(0, size - 1) + '.');
 	return (this->_firstName);
 }
 
-std::string	Contact::getLastName(void) const
+std::string	Contact::getLastName(int size) const
 {
+	if (size > 0 && (int)this->_lastName.length() > size)
+		return (this->_lastName.substr(0, size - 1) + '.');
 	return (this->_lastName);
 }
 
-std::string	Contact::getNickName(void) const
+std::string	Contact::getNickName(int size) const
 {
+	if (size > 0 && (int)this->_nickName.length() > size)
+		return (this->_nickName.substr(0, size - 1) + '.');
 	return (this->_nickName);
 }
 
-std::string	Contact::getPhoneNumber(void) const
+std::string	Contact::getPhoneNumber(int size) const
 {
+	if (size > 0 && (int)this->_phoneNumber.length() > size)
+		return (this->_phoneNumber.substr(0, size - 1) + '.');
 	return (this->_phoneNumber);
 }
 
-std::string	Contact::getDarkestSecret(void) const
+std::string	Contact::getDarkestSecret(int size) const
 {
+	if (size > 0 && (int)this->_darkestSecret.length() > size)
+		return (this->_darkestSecret.substr(0, size - 1) + '.');
 	return (this->_darkestSecret);
 }
