@@ -6,7 +6,8 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 21:54:48 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 22:37:52 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Code understanding: https://chatgpt.com/share/66ec6ef4-25f8-8005-a29b-ecf3f99ac081
