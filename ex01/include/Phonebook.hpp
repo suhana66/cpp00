@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:44 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 19:42:07 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 21:10:23 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ class	Phonebook
 		Phonebook& operator=(const Phonebook &src);
 
 		void	addContact(void);
-		void	searchContacts(void);
-		void	printContacts(int rowCount);
-		void	displayContact(int index);
+		void	searchContacts(void) const;
+		void	printContacts(int rowCount) const;
 };
 
 #endif /* PHONEBOOK_H */

@@ -6,13 +6,14 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:43:09 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 19:00:54 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 21:17:42 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 
+#include <iostream>
 #include <string>
 
 class	Contact
@@ -37,6 +38,8 @@ class	Contact
 		std::string	getNickName(int size = 0) const;
 		std::string	getPhoneNumber(int size = 0) const;
 		std::string	getDarkestSecret(int size = 0) const;
+
+		void	showInfo(void) const;
 };
 
 #endif /* CONTACT_H */

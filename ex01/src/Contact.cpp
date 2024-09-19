@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:58 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 19:18:04 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 21:22:57 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,13 @@ std::string	Contact::getDarkestSecret(int size) const
 	if (size > 0 && (int)this->_darkestSecret.length() > size)
 		return (this->_darkestSecret.substr(0, size - 1) + '.');
 	return (this->_darkestSecret);
+}
+
+void	Contact::showInfo(void) const
+{
+	std::cout << "\tFirst Name:\t" << this->_firstName << std::endl;
+	std::cout << "\tLast Name:\t" << this->_lastName << std::endl;
+	std::cout << "\tNickname:\t" << this->_nickName << std::endl;
+	std::cout << "\tPhone Number:\t" << this->_phoneNumber << std::endl;
+	std::cout << "\tDarkest Secret:\t" << this->_darkestSecret << std::endl;
 }

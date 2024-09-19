@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 19:48:20 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 21:46:04 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,12 @@ void	Phonebook::addContact(void)
 	if (this->_contactCount >= this->MAX_CONTACTS)
 		std::cout << "Warning: overwriting info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
 	this->_contacts[this->_contactCount % this->MAX_CONTACTS] = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
-	std::cout << "* Added info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl << std::endl;
+	std::cout << "* Added info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
 	this->_contactCount++;
+	std::cout << std::endl;
 }
 
-void	Phonebook::searchContacts(void)
+void	Phonebook::searchContacts(void) const
 {
 	int	rowCount = this->_contactCount > this->MAX_CONTACTS ? this->MAX_CONTACTS : this->_contactCount;
 	if (rowCount == 0)
@@ -77,15 +78,16 @@ void	Phonebook::searchContacts(void)
 	{
 		getInput(indexStr, "Index of the contact to display: ");
 		std::stringstream	ss(indexStr);
-		ss >> index;
-		if (ss.fail() && !(ss >> indexStr) && index >= 1 && index <= rowCount)
-			return (this->displayContact(index - 1));
+		if (ss >> index && !(ss >> indexStr) && index >= 1 && index <= rowCount)
+			break ;
 		else
 			std::cout << "* Index should be a number between 1 and " << rowCount << std::endl;
 	}
+	this->_contacts[index - 1].showInfo();
+	std::cout << std::endl;
 }
 
-void	Phonebook::printContacts(int rowCount)
+void	Phonebook::printContacts(int rowCount) const
 {
 	std::string	columnValues[] = {"Index", "First Name", "Last Name", "Nickname"};
 	int			columnCount = 4;
@@ -102,7 +104,6 @@ void	Phonebook::printContacts(int rowCount)
 		this->_printColumn(columnCount, columnValues);
 	}
 	this->_printDivider(columnCount);
-	std::cout << std::endl;
 }
 
 void	Phonebook::_printDivider(int columnCount)
@@ -133,8 +134,4 @@ void	Phonebook::_printColumn(int columnCount, std::string columnValues[])
 	std::cout << std::endl;
 
 	std::cout.copyfmt(init);
-}
-
-void	Phonebook::displayContact(int index)
-{
 }
