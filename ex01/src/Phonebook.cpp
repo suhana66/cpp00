@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 19:17:06 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 19:48:20 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,29 @@ void	Phonebook::addContact(void)
 
 void	Phonebook::searchContacts(void)
 {
-	if (this->_contactCount == 0)
+	int	rowCount = this->_contactCount > this->MAX_CONTACTS ? this->MAX_CONTACTS : this->_contactCount;
+	if (rowCount == 0)
 	{
 		std::cout << "* The phonebook is empty (Nothing to show)" << std::endl;
 		return ;
 	}
-	this->printContacts();
+	this->printContacts(rowCount);
+
+	std::string	indexStr;
+	int			index;
+	while (true)
+	{
+		getInput(indexStr, "Index of the contact to display: ");
+		std::stringstream	ss(indexStr);
+		ss >> index;
+		if (ss.fail() && !(ss >> indexStr) && index >= 1 && index <= rowCount)
+			return (this->displayContact(index - 1));
+		else
+			std::cout << "* Index should be a number between 1 and " << rowCount << std::endl;
+	}
 }
 
-void	Phonebook::printContacts(void)
+void	Phonebook::printContacts(int rowCount)
 {
 	std::string	columnValues[] = {"Index", "First Name", "Last Name", "Nickname"};
 	int			columnCount = 4;
@@ -79,7 +93,7 @@ void	Phonebook::printContacts(void)
 	this->_printDivider(columnCount);
 	this->_printColumn(columnCount, columnValues);
 	this->_printDivider(columnCount);
-	for (int i = 0; i < (this->_contactCount > this->MAX_CONTACTS ? this->MAX_CONTACTS : this->_contactCount); i++)
+	for (int i = 0; i < rowCount; i++)
 	{
 		columnValues[0] = '0' + i + 1;
 		columnValues[1] = this->_contacts[i].getFirstName(COLUMN_WIDTH);
@@ -88,6 +102,7 @@ void	Phonebook::printContacts(void)
 		this->_printColumn(columnCount, columnValues);
 	}
 	this->_printDivider(columnCount);
+	std::cout << std::endl;
 }
 
 void	Phonebook::_printDivider(int columnCount)
@@ -118,4 +133,8 @@ void	Phonebook::_printColumn(int columnCount, std::string columnValues[])
 	std::cout << std::endl;
 
 	std::cout.copyfmt(init);
+}
+
+void	Phonebook::displayContact(int index)
+{
 }
