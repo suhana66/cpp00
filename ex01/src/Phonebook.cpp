@@ -6,15 +6,14 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 15:17:14 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/19 17:16:13 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include <iostream>
 
 Phonebook::Phonebook(void)
-	: _index(0)
+	: _contactCount(0)
 {
 	std::cout << "Welcome to My Awesome Phonebook!" << std::endl;
 	std::cout << "* Created an empty phonebook for up to " << this->MAX_CONTACTS << " contacts" << std::endl;
@@ -55,13 +54,41 @@ void	Phonebook::addContact(void)
 		|| !getInput(phoneNumber, "\tPhone Number\t[]: ")
 		|| !getInput(darkestSecret, "\tDarkest Secret\t[]: "))
 		return ;
-	if (this->_index >= this->MAX_CONTACTS)
-		std::cout << "Warning: overwriting info at index " << this->_index % this->MAX_CONTACTS << std::endl;
-	this->_contacts[this->_index % this->MAX_CONTACTS] = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
-	std::cout << "* Added info at index " << this->_index % this->MAX_CONTACTS << std::endl;
-	this->_index++;
+	if (this->_contactCount >= this->MAX_CONTACTS)
+		std::cout << "Warning: overwriting info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
+	this->_contacts[this->_contactCount % this->MAX_CONTACTS] = Contact(firstName, lastName, nickName, phoneNumber, darkestSecret);
+	std::cout << "* Added info at index " << this->_contactCount % this->MAX_CONTACTS << std::endl;
+	this->_contactCount++;
 }
 
 void	Phonebook::searchContacts(void)
 {
+	if (this->_contactCount == 0)
+	{
+		std::cout << "* The phonebook is empty (Nothing to show)" << std::endl;
+		return ;
+	}
+	this->printContacts();
+}
+
+void	Phonebook::printContacts(void)
+{
+	std::cout << std::right << "+" << std::setfill('-')
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+	<< std::endl;
+	std::cout << "|" << std::setfill(' ')
+		<< std::setw(COLUMN_WIDTH) << "Index" << "|"
+		<< std::setw(COLUMN_WIDTH) << "First Name" << "|"
+		<< std::setw(COLUMN_WIDTH) << "Last Name" << "|"
+		<< std::setw(COLUMN_WIDTH) << "Nickname" << "|"
+	<< std::endl;
+	std::cout << "+" << std::setfill('-')
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+		<< std::setw(COLUMN_WIDTH + 1) << "+"
+	<< std::endl;
 }
