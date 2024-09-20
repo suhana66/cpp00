@@ -6,13 +6,15 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 10:18:01 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 11:10:17 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Code understanding: https://chatgpt.com/share/66ec6ef4-25f8-8005-a29b-ecf3f99ac081
 
 #include "Account.hpp"
+#include <ctime>
+#include <iostream>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -37,4 +39,62 @@ int	Account::getNbDeposits( void )
 int	Account::getNbWithdrawals( void )
 {
 	return (Account::_totalNbWithdrawals);
+}
+
+// TODO
+void	Account::displayAccountsInfos( void )
+{
+}
+
+// TODO
+Account::Account( int initial_deposit )
+{
+	(void)initial_deposit;
+	(void)this->_accountIndex;
+	(void)this->_nbDeposits;
+	(void)this->_nbWithdrawals;
+}
+
+// TODO
+Account::~Account( void )
+{
+}
+
+// TODO
+void	Account::makeDeposit( int deposit )
+{
+	(void)deposit;
+}
+
+// TODO
+bool	Account::makeWithdrawal( int withdrawal )
+{
+	(void)withdrawal;
+	return (false);
+}
+
+// TODO
+int		Account::checkAmount( void ) const
+{
+	return (this->_amount);
+}
+
+// TODO
+void	Account::displayStatus( void ) const
+{
+}
+
+void	Account::_displayTimestamp( void )
+{
+	std::time_t	current_time = std::time(nullptr);
+	std::tm*	time_info = std::localtime(&current_time);
+	char		buffer[18];
+
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", time_info);
+	std::cout << buffer;
+}
+
+// TODO
+Account::Account( void )
+{
 }
