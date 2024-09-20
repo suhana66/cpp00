@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 11:46:24 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 12:04:21 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,17 @@ Account::~Account( void )
 {
 }
 
-// TODO
 void	Account::makeDeposit( int deposit )
 {
-	(void)deposit;
+	int	p_amount = this->_amount;
+	this->_amount += deposit;
+	this->_totalAmount += deposit;
+	this->_nbDeposits++;
+	this->_totalNbDeposits++;
+
+	this->_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex << ";p_amount:" << p_amount << ";deposit:" << deposit
+		<< ";amount:" << this->_amount << ";nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
 // TODO
