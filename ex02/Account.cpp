@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 11:29:22 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 11:46:24 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ int	Account::getNbWithdrawals( void )
 	return (Account::_totalNbWithdrawals);
 }
 
-// TODO
 void	Account::displayAccountsInfos( void )
 {
+	Account::_displayTimestamp();
+	std::cout << " accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount
+		<< ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 }
 
 Account::Account( int initial_deposit )
@@ -79,15 +81,16 @@ bool	Account::makeWithdrawal( int withdrawal )
 	return (false);
 }
 
-// TODO
 int		Account::checkAmount( void ) const
 {
 	return (this->_amount);
 }
 
-// TODO
 void	Account::displayStatus( void ) const
 {
+	this->_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex << ";amount:" << this->_amount
+		<< ";deposits:" << this->_nbDeposits << ";withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 void	Account::_displayTimestamp( void )
