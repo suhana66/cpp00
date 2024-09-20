@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 12:10:58 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 12:28:50 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,28 @@ void	Account::makeDeposit( int deposit )
 	<< std::endl;
 }
 
-// TODO
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	(void)withdrawal;
-	return (false);
+	this->_displayTimestamp();
+	std::cout << " "
+		<< "index:" << this->_accountIndex << ";"
+		<< "p_amount:" << this->_amount << ";";
+
+	if (withdrawal > this->_amount)
+	{
+		std::cout << "withdrawal:refused" << std::endl;
+		return (false);
+	}
+	this->_amount -= withdrawal;
+	this->_totalAmount -= withdrawal;
+	this->_nbWithdrawals++;
+	this->_totalNbWithdrawals++;
+	std::cout
+		<< "withdrawal:" << withdrawal << ";"
+		<< "amount:" << this->_amount << ";"
+		<< "nb_withdrawals:" << this->_nbWithdrawals
+	<< std::endl;
+	return (true);
 }
 
 int		Account::checkAmount( void ) const
