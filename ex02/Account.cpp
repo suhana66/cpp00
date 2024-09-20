@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 11:10:17 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 11:29:22 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,19 @@ void	Account::displayAccountsInfos( void )
 {
 }
 
-// TODO
 Account::Account( int initial_deposit )
 {
-	(void)initial_deposit;
-	(void)this->_accountIndex;
-	(void)this->_nbDeposits;
-	(void)this->_nbWithdrawals;
+	this->_accountIndex = this->_nbAccounts;
+	this->_nbAccounts++;
+
+	this->_amount = initial_deposit;
+	this->_totalAmount += initial_deposit;
+
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
+
+	this->_displayTimestamp();
+	std::cout << " index:" << this->_accountIndex << ";" << "amount:" << this->_amount << ";created" << std::endl;
 }
 
 // TODO
