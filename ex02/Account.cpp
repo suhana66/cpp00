@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:54:47 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/20 12:47:25 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/20 13:13:11 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,15 @@ void	Account::_displayTimestamp( void )
 	std::cout << buffer;
 }
 
-// TODO
 Account::Account( void )
+	: _accountIndex(Account::_nbAccounts), _amount(0), _nbDeposits(0), _nbWithdrawals(0)
 {
+	Account::_nbAccounts++;
+
+	this->_displayTimestamp();
+	std::cout << " "
+		<< "index:" << this->_accountIndex << ";"
+		<< "amount:" << this->_amount << ";"
+		<< "created"
+	<< std::endl;
 }
