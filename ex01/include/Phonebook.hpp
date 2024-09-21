@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:44 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 21:10:23 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/21 12:29:08 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <sstream>
 
 # define COLUMN_WIDTH 10
-
-bool	getInput(std::string& result, const std::string prompt);
 
 class	Phonebook
 {
@@ -42,5 +40,7 @@ class	Phonebook
 		void	searchContacts(void) const;
 		void	printContacts(int rowCount) const;
 };
+
+bool	getInput(std::string& result, const std::string prompt);
 
 #endif /* PHONEBOOK_H */

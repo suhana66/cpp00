@@ -6,13 +6,13 @@
 #    By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/19 21:54:53 by susajid           #+#    #+#              #
-#    Updated: 2024/09/19 22:02:23 by susajid          ###   ########.fr        #
+#    Updated: 2024/09/21 12:24:59 by susajid          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := account
 CC := c++
-CPPFLAGS := -Wall -Wextra -Werror -std=c++98
+CPPFLAGS := -Wall -Wextra -Werror
 
 SRC := Account.cpp tests.cpp
 OBJ := $(SRC:.cpp=.o)
