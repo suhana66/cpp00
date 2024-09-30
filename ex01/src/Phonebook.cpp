@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:57:19 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/19 21:46:04 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/30 11:47:26 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,32 +76,33 @@ void	Phonebook::searchContacts(void) const
 	int			index;
 	while (true)
 	{
-		getInput(indexStr, "Index of the contact to display: ");
+		if (!getInput(indexStr, "Index of the contact to display: "))
+			return ;
 		std::stringstream	ss(indexStr);
-		if (ss >> index && !(ss >> indexStr) && index >= 1 && index <= rowCount)
+		if (ss >> index && !(ss >> indexStr) && index >= 0 && index < rowCount)
 			break ;
 		else
-			std::cout << "* Index should be a number between 1 and " << rowCount << std::endl;
+			std::cout << "* Index should be a number between (inclusive) 0 and (exclusive) " << rowCount << std::endl;
 	}
-	this->_contacts[index - 1].showInfo();
+	this->_contacts[index].showInfo();
 	std::cout << std::endl;
 }
 
 void	Phonebook::printContacts(int rowCount) const
 {
-	std::string	columnValues[] = {"Index", "First Name", "Last Name", "Nickname"};
+	std::string	rowValues[] = {"Index", "First Name", "Last Name", "Nickname"};
 	int			columnCount = 4;
 
 	this->_printDivider(columnCount);
-	this->_printColumn(columnCount, columnValues);
+	this->_printRow(columnCount, rowValues);
 	this->_printDivider(columnCount);
 	for (int i = 0; i < rowCount; i++)
 	{
-		columnValues[0] = '0' + i + 1;
-		columnValues[1] = this->_contacts[i].getFirstName(COLUMN_WIDTH);
-		columnValues[2] = this->_contacts[i].getLastName(COLUMN_WIDTH);
-		columnValues[3] = this->_contacts[i].getNickName(COLUMN_WIDTH);
-		this->_printColumn(columnCount, columnValues);
+		rowValues[0] = '0' + i;
+		rowValues[1] = this->_contacts[i].getFirstName(COLUMN_WIDTH);
+		rowValues[2] = this->_contacts[i].getLastName(COLUMN_WIDTH);
+		rowValues[3] = this->_contacts[i].getNickName(COLUMN_WIDTH);
+		this->_printRow(columnCount, rowValues);
 	}
 	this->_printDivider(columnCount);
 }
@@ -121,7 +122,7 @@ void	Phonebook::_printDivider(int columnCount)
 	std::cout.copyfmt(init);
 }
 
-void	Phonebook::_printColumn(int columnCount, std::string columnValues[])
+void	Phonebook::_printRow(int columnCount, std::string columnValues[])
 {
 	std::ios	init(NULL);
 	init.copyfmt(std::cout);

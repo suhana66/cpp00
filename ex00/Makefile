@@ -6,7 +6,7 @@
 #    By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/16 09:37:24 by susajid           #+#    #+#              #
-#    Updated: 2024/09/21 12:24:47 by susajid          ###   ########.fr        #
+#    Updated: 2024/09/30 11:17:58 by susajid          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $(OBJ) -o $@
+
+%.o: %.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

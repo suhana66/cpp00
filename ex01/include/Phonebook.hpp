@@ -6,7 +6,7 @@
 /*   By: susajid <susajid@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 10:37:44 by susajid           #+#    #+#             */
-/*   Updated: 2024/09/21 12:29:08 by susajid          ###   ########.fr       */
+/*   Updated: 2024/09/30 11:40:53 by susajid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	Phonebook
 		int					_contactCount;
 
 		static void	_printDivider(int columnCount);
-		static void	_printColumn(int columnCount, std::string columnValues[]);
+		static void	_printRow(int columnCount, std::string RowValues[]);
 
 	public:
 		Phonebook(void);
